@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplication6.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.businessName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeofBusiness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.streetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeStrength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.businessName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeofBusiness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.streetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeStrength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.ActionLink("Set Password", "setPassword", new { phoneNo = item.phoneNo }) -
+                @Html.ActionLink("Accept and Send Email", "Accept", new { phoneNo = item.phoneNo })
+                @*@Html.ActionLink("Delete", "Delete", new {  phoneNo = item.phoneNo })*@
+            </td>
+        </tr>
+    }
+    <p style="font-style:italic;font-family:'Segoe UI';font-weight:bold;margin-left: 868px;">@Html.ActionLink("Generate Report", "Basic","Featured")</p>
+</table>
